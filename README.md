@@ -4,6 +4,9 @@
 
 Hardened Iranian national ID card OCR using LangChain + GPT-4o with anti-forgery validation.
 
+
+![diagram](img/AI-Powered_ID_Shield_System.png)
+
 ## Files
 
 project-root/
