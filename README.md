@@ -9,8 +9,7 @@ Hardened Iranian national ID card OCR using LangChain + GPT-4o with anti-forgery
 project-root/
 ├── ocr_service_enhanced.py   # Main module with both functions
 └── examples/                 # Few-shot example images (required)
-    ├── authentic_card_1.jpg
-    ├── authentic_card_2.jpg
+    ├── authentic_card.jpg
     ├── fraud_phone_screen.jpg
     ├── fraud_edited_code.jpg
     └── fraud_printed_template.jpg
