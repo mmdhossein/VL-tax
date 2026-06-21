@@ -1,3 +1,6 @@
+The issue is that the outer code block is using triple backticks with `markdown`, which causes GitHub to render it as a code block instead of actual markdown. Here's the corrected version — just copy this directly into your `README.md` file:
+
+---
 
 # OCR Service Enhanced — National ID Verification
 
@@ -8,10 +11,12 @@ Hardened Iranian national ID card OCR using LangChain + GPT-4o with anti-forgery
 project-root/
 ├── ocr_service_enhanced.py   # Main module with both functions
 └── examples/                 # Few-shot example images (required)
-    ├── authentic_card.jpg
+    ├── authentic_card_1.jpg
+    ├── authentic_card_2.jpg
     ├── fraud_phone_screen.jpg
     ├── fraud_edited_code.jpg
     └── fraud_printed_template.jpg
+
 
 ## How It Works
 
@@ -23,7 +28,7 @@ Converts a local image file to a base64 data URI. Supports `.jpg`, `.png`, `.web
 **`extract_national_code_with_langchain(image_data)`**
 Takes a base64 data URI and returns the 10-digit national code, or a rejection reason.
 
-python
+```python
 from ocr_service_enhanced import image_to_base64, extract_national_code_with_langchain
 
 image_data = image_to_base64("path/to/card.jpg")
@@ -32,6 +37,7 @@ print(result)
 # "0012345678"          → success
 # "FRAUD_DETECTED: ..." → fraud found
 # "NOT_FOUND: ..."      → unreadable or low confidence
+```
 
 ## Anti-Forgery Enhancements
 
@@ -58,13 +64,14 @@ Five real conversation turns (Human → AI pairs) are prepended before the targe
 ### 3. Strict JSON Contract
 The model must return only this structure:
 
-json
+```json
 {
   "is_authentic": true,
   "fraud_indicators": [],
   "national_code": "0012345678",
   "confidence": 96
 }
+```
 
 ### 4. Post-Processing Validation Gates
 The parsed response passes through four rejection gates before a code is returned:
@@ -78,9 +85,10 @@ The parsed response passes through four rejection gates before a code is returne
 
 ## Setup
 
-bash
+```bash
 pip install langchain langchain-openai openai
 export OPENAI_API_KEY="your-key-here"
+```
 
 Populate the `examples/` folder with real card images before running.
 The five example files are loaded once at module import time.
