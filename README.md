@@ -1,6 +1,4 @@
-The issue is that the outer code block is using triple backticks with `markdown`, which causes GitHub to render it as a code block instead of actual markdown. Here's the corrected version — just copy this directly into your `README.md` file:
 
----
 
 # OCR Service Enhanced — National ID Verification
 
